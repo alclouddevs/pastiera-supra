@@ -143,7 +143,7 @@ object SettingsManager {
     private const val DEFAULT_GLOBAL_VARIATION_LAYOUT_OVERRIDE = ""
     private const val MIN_ACCESSIBILITY_SUGGESTIONS_ANNOUNCEMENT_DELAY_MS = 100L
     private const val MAX_ACCESSIBILITY_SUGGESTIONS_ANNOUNCEMENT_DELAY_MS = 2000L
-    private val STATIC_VARIATION_BASE_PRESET_DEFAULT = listOf("@", "\"", ":", "!", "?", ",", ".")
+    private val STATIC_VARIATION_BASE_PRESET_DEFAULT = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
     private val STATIC_VARIATION_BASE_PRESET_ALTERNATIVE = listOf("[", "]", "$", "%", "^", "&", "\\")
     private val STATIC_VARIATION_SHIFT_PRESET_DEFAULT = listOf("{", "}", "€", "=", "~", ";", "¿")
     private val STATIC_VARIATION_ALT_PRESET_DEFAULT = listOf("<", ">", "¥", "|", "`", "´", "°")

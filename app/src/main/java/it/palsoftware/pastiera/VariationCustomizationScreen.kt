@@ -73,17 +73,17 @@ fun VariationCustomizationScreen(
     
     // Load static variations to preserve them when saving
     var staticVariations by remember {
-        val loaded = VariationRepository.loadStaticVariations(context.assets, context).take(7)
+        val loaded = VariationRepository.loadStaticVariations(context.assets, context).take(10)
         val initial = if (loaded.isNotEmpty()) loaded else SettingsManager.getStaticVariationBasePreset(context)
         mutableStateOf(initial)
     }
     var staticVariationsShift by remember {
-        val loaded = VariationRepository.loadStaticVariationsShift(context.assets, context).take(7)
+        val loaded = VariationRepository.loadStaticVariationsShift(context.assets, context).take(10)
         val initial = if (loaded.isNotEmpty()) loaded else SettingsManager.getDefaultStaticVariationShiftPreset()
         mutableStateOf(initial)
     }
     var staticVariationsAlt by remember {
-        val loaded = VariationRepository.loadStaticVariationsAlt(context.assets, context).take(7)
+        val loaded = VariationRepository.loadStaticVariationsAlt(context.assets, context).take(10)
         val initial = if (loaded.isNotEmpty()) loaded else SettingsManager.getDefaultStaticVariationAltPreset()
         mutableStateOf(initial)
     }
@@ -669,13 +669,13 @@ fun VariationCustomizationScreen(
                         variations = repoVariations.mapKeys { it.key.toString() }
                         staticVariationBaseLayerEnabled = SettingsManager.isStaticVariationBarBaseLayerEnabled(context)
                         staticVariations = SettingsManager.getStaticVariationBasePreset(context)
-                        val loadedShift = VariationRepository.loadStaticVariationsShift(context.assets, context).take(7)
+                        val loadedShift = VariationRepository.loadStaticVariationsShift(context.assets, context).take(10)
                         staticVariationsShift = if (loadedShift.isNotEmpty()) {
                             loadedShift
                         } else {
                             SettingsManager.getDefaultStaticVariationShiftPreset()
                         }
-                        val loadedAlt = VariationRepository.loadStaticVariationsAlt(context.assets, context).take(7)
+                        val loadedAlt = VariationRepository.loadStaticVariationsAlt(context.assets, context).take(10)
                         staticVariationsAlt = if (loadedAlt.isNotEmpty()) {
                             loadedAlt
                         } else {
@@ -904,11 +904,11 @@ private fun reorderEntries(
     val target = toIndex.coerceIn(0, mutable.size)
     mutable.add(target, movedItem)
     
-    return mutable.take(7)
+    return mutable.take(10)
 }
 
 /**
- * Applies picker changes for a row slot, trimming trailing blanks and enforcing the 7-slot cap.
+ * Applies picker changes for a row slot, trimming trailing blanks and enforcing the 10-slot cap.
  */
 private fun updateVariationEntries(
     currentEntries: List<String>,
@@ -938,7 +938,7 @@ private fun updateVariationEntries(
         updatedEntries.removeAt(updatedEntries.lastIndex)
     }
     
-    return updatedEntries.take(7)
+    return updatedEntries.take(10)
 }
 
 private enum class StaticLayer {

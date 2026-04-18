@@ -367,7 +367,7 @@ class VariationBarView(
             }
         }
 
-        val limitedVariations = effectiveVariations.take(7)
+        val limitedVariations = effectiveVariations.take(10)
         val showSwipeHint = effectiveVariations.isEmpty() && !allowStaticFallback
         shouldShowSwipeHint = showSwipeHint
 
@@ -414,8 +414,8 @@ class VariationBarView(
         val hasRightButtons = rightButtonCount > 0
         
         // Calculate fixed button size based on actual number of buttons
-        // Formula: total elements = buttons + 7 variations (max)
-        val totalElements = totalButtonCount + 7
+        // Formula: total elements = buttons + 10 variations (max)
+        val totalElements = totalButtonCount + 10
         val rawFixedButtonSize = max(1, (availableWidth - spacingBetweenButtons * totalElements) / totalElements)
         val maxButtonHeight = (
             TypedValue.applyDimension(
@@ -452,12 +452,12 @@ class VariationBarView(
         }
         val buttonWidth: Int
         val maxButtonWidth: Int
-        if (variationCount < 7 && variationCount > 0) {
+        if (variationCount < 10 && variationCount > 0) {
             buttonWidth = baseButtonWidth
             maxButtonWidth = baseButtonWidth
         } else {
             buttonWidth = baseButtonWidth
-            maxButtonWidth = baseButtonWidth * 3 // Cap at 3x when we have 7 variations
+            maxButtonWidth = baseButtonWidth * 3 // Cap at 3x when we have 10 variations
         }
         val variationButtonHeight = min(buttonWidth, maxButtonHeight)
 
