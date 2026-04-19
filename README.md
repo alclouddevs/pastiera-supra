@@ -1,71 +1,104 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C31OHWF2)
-# Pastiera
+# Pastiera Supra
 
-Input method for physical keyboards android devices (e.g. Unihertz Titan 2), designed to make typing faster through shortcuts, gestures, and customization.
+Input method for physical keyboards on Android devices (e.g. Unihertz Titan 2), designed to make typing faster through shortcuts, gestures, and deep customization. Pastiera Supra builds on the original Pastiera with significant new features focused on voice input, navigation, and layout improvements.
 
-## Quick overview
+## What's New in Pastiera Supra
+
+### Voice Typing
+- **Long-press Spacebar** to trigger voice typing directly from any text field — no shortcut needed.
+- Improved long-press detection reliability specifically for physical keyboards.
+- Fixed focus issues where Google Voice Typing would incorrectly shift focus to another app.
+
+### Keyboard Enhancements
+- **Swipe Pad Navigation**: The keyboard status bar now doubles as a swipe pad for precise cursor movement.
+- **Touch-Enabled Emojis and Symbols**: SYM keyboard symbols and emojis are now directly touchable for easier input.
+- **Keyboard Layout Conversion**: Added support for converting between different keyboard layouts (AZERTY, QWERTZ, etc.).
+- **Russian JCUKEN Layout**: New dedicated Russian JCUKEN layout added.
+- **Number Row Update**: Top number row now correctly displays 1 through 0.
+
+### Auto-Capitalization
+- **Smart Sentence Capitalization**: Automatically capitalizes the first letter after sentences ending with `.`, `!`, or `?`.
+
+### Settings & Customization
+- **Customizable Navigation Mode**: Nav Mode and Ctrl+key assignments can now be configured directly from app settings.
+- **Quick Settings Access**: Added a gear icon button on the keyboard for one-tap access to settings.
+- **Enhanced Dictionary Management**:
+  - Search functionality in the dictionary corrections interface.
+  - Custom dictionary entries appear at the top of the list for easier access.
+  - **Pastiera Recipes**: global autocorrections valid across all languages (e.g. `ppp` → `%`).
+  - Expanded unicode characters in the SYM layer page 2.
+
+### User Interface
+- **Light/Dark Mode Fix**: Resolved white-on-white text rendering in Android light mode.
+- **Multi-Language Support**: Added translations for additional languages.
+
+### Bug Fixes
+- Fixed Alt+Space pop-up issue that caused an unwanted popup when pressing Alt+Space or Alt+Letter+Space.
+- Fixed Speech Recognition focus shifting to another app when activated.
+
+---
+
+## Quick Overview
 - Compact status bar with LED indicators for Shift/SYM/Ctrl/Alt, variants/suggestions bar, and swipe-pad gestures to move the cursor.
-- Multiple layouts (QWERTY/AZERTY/QWERTZ, Greek, Cyrillic, Arabic, translit, etc.) fully configurable; JSON import/export directly from the app. A web frontend for editing layouts is available at https://pastierakeyedit.vercel.app/
+- Multiple layouts (QWERTY/AZERTY/QWERTZ, Greek, Cyrillic, Arabic, translit, Russian JCUKEN, etc.) fully configurable; JSON import/export directly from the app. A web frontend for editing layouts is available at https://pastierakeyedit.vercel.app/
 - SYM pages usable via touch or physical keys (emoji + symbols), reorderable/disableable, with an integrated layout editor.
 - Clipboard support with multiple entries and pinnable items.
-- Support for dictionary based suggestions/Autocorrections + swipe gestures to accept a suggestion (requires Shizuku)
+- Support for dictionary-based suggestions/autocorrections + swipe gestures to accept a suggestion (requires Shizuku).
 - Full backup/restore (settings, layouts, variations, dictionaries), UI translated into multiple languages, and built-in GitHub update checks.
 
-## Typing and modifiers
+## Typing and Modifiers
 - Long press on a key can input Alt+key or Shift+Key (uppercase) timing configurable.
 - Shift/Ctrl/Alt in one-shot or lock mode (double tap), option to clear Alt on space.
 - Current behavior note: `Ctrl` used as a physically held shortcut modifier (e.g. hold `Ctrl` + `A`) intentionally follows the app shortcut path and is not the same flow as Nav Mode (`Ctrl` double-tap latch outside text fields). Nav Mode remains a separate implementation/state.
-- Multi-tap support for keys with layout-defined variants (e.g. Cyrillic)
+- Multi-tap support for keys with layout-defined variants (e.g. Cyrillic).
 - Standard shortcuts: Ctrl+C/X/V, Ctrl+A, Ctrl+Backspace, Ctrl+E/D/S/F or I/J/K/L for arrows, Ctrl+W/R for selection, Ctrl+T for Tab, Ctrl+Y/H for Page Up/Down, Ctrl+Q for Esc (all customizable in the Customize Nav screen).
 
-## QOL features
-- **Nav Mode**: double tap Ctrl outside text fields to use ESDF or IJKL as arrows, and many more useful mappings (everything is customizable in Customize Nav Mode settings)
+## QOL Features
+- **Nav Mode**: double tap Ctrl outside text fields to use ESDF or IJKL as arrows, and many more useful mappings (everything is customizable in Customize Nav Mode settings).
 - **Variations bar as swipe pad**: drag to move the cursor, with adjustable threshold.
 - **Launcher shortcuts**: in the launcher, press a letter to open/assign an app.
 - **Power shortcuts**: press SYM (5s timeout) then a letter to use the same shortcuts anywhere, even outside the launcher.
-- Change language with a tap on language code in the status bar, longpress to enter pastiera settings
+- Change language with a tap on language code in the status bar, longpress to enter Pastiera settings.
 
-## Keyboard layouts
-- Included layouts: qwerty, azerty, qwertz, greek, arabic, russian/armenian phonetic translit, plus dedicated Alt maps for Titan 2.
+## Keyboard Layouts
+- Included layouts: qwerty, azerty, qwertz, greek, arabic, russian/armenian phonetic translit, Russian JCUKEN, plus dedicated Alt maps for Titan 2.
 - Layout switching: select from the enabled layouts list (configurable).
 - Multi-tap support and mapping for complex characters.
 - JSON import/export directly from the app, with visual preview and list management (enable/disable, delete).
 - Layout maps are stored in `files/keyboard_layouts` and can also be edited manually. A web frontend for editing layouts is available at https://pastierakeyedit.vercel.app/
 
-## Symbols, emoji, and variations
+## Symbols, Emoji, and Variations
 - Two touch-based SYM pages (emoji + symbols): reorderable/enableable, auto-close after input, customizable keycaps.
 - In-app SYM editor with emoji grid and Unicode picker.
 - Variations bar above the keyboard: shows accents/variants of the last typed letter or static sets (utility/email) when needed.
 - Dedicated variations editor to replace/add variants via JSON or Unicode picker; optional static bar.
 
-## Suggestions and autocorrection
-
-- Experimental support for dictionary based autocorrection/suggestions
+## Suggestions and Autocorrection
+- Experimental support for dictionary-based autocorrection/suggestions.
 - User dictionary with search and edit abilities.
-- Per-language auto substituion editor, quick search, and a global “Pastiera Recipes” set shared across all languages.
-- Change language/keymap with a tap on the language code button or ctrl+space
+- Per-language auto substitution editor, quick search, and a global "Pastiera Recipes" set shared across all languages.
+- Change language/keymap with a tap on the language code button or Ctrl+Space.
 
-
-
-## Comfort and extra input
-- Double space → period + space + uppercase; 
+## Comfort and Extra Input
+- Double space → period + space + uppercase.
 - Swipe left on the keyboard to delete a word (Titan 2).
-- Optional Alt+Ctrl shortcut to start Google Voice Typing; microphone always available on the variants bar.
-- Compact status bar to minimize vertical space. With on-screen keyboard disabled from the IME selector, it uses even less space (aka Pastierina mode)
+- Long-press Spacebar to start voice typing; microphone always available on the variants bar.
+- Compact status bar to minimize vertical space. With on-screen keyboard disabled from the IME selector, it uses even less space (aka Pastierina mode).
 - Translated UI (it/en/de/es/fr/pl/ru/hy) and onboarding tutorial.
 
-## Backup, updates, and data
+## Backup, Updates, and Data
 - UI-based backup/restore in ZIP format: includes preferences, custom layouts, variations, SYM/Ctrl maps, and user dictionaries.
 - Restore merges saved variations with defaults to avoid losing newly added keys.
 - Built-in GitHub update check when opening settings (with option to ignore a release).
 - Customizable files in `files/`: `variations.json`, `ctrl_key_mappings.json`, `sym_key_mappings*.json`, `keyboard_layouts/*.json`, user dictionaries.
-- Android autobackup function 
+- Android autobackup function.
 
 ## Installation
 1. Build the APK or install an existing build.
 2. Android Settings → System → Languages & input → Virtual keyboard → Manage keyboards.
-3. Enable “Pastiera” and select it from the input selector when typing.
+3. Enable "Pastiera" and select it from the input selector when typing.
 
 ## Requirements
 - Android 10 (API 29) or higher.
@@ -95,7 +128,7 @@ Input method for physical keyboards android devices (e.g. Unihertz Titan 2), des
   - `:app:testStableDebugUnitTest -PPASTIERA_FDROID_BUILD=true`
   - `:app:testNightlyDebugUnitTest`
 
-## Manual release CI
+## Manual Release CI
 - The repository includes a manually triggered GitHub Actions workflow at `.github/workflows/release.yml`.
 - Required GitHub Actions secrets:
   - `PASTIERA_KEYSTORE_B64`
@@ -119,7 +152,7 @@ Input method for physical keyboards android devices (e.g. Unihertz Titan 2), des
   - `./scripts/build-release.sh 0.85 85`
   - `./scripts/build-fdroid.sh 0.85 85`
 
-## Manual nightly CI
+## Manual Nightly CI
 - The repository includes a manually triggered nightly workflow at `.github/workflows/debug.yml`.
 - Required GitHub Actions secrets:
   - `PASTIERA_NIGHTLY_KEYSTORE_B64`
@@ -158,7 +191,7 @@ Input method for physical keyboards android devices (e.g. Unihertz Titan 2), des
 - Public repo URL:
   - `https://pastiera.eu/fdroid/nightly/repo`
 - GitHub Nightly releases:
-  - `https://github.com/palsoftware/pastiera/releases?q=nightly%2F`
+  - `https://github.com/palsoftware/pastiera-supra/releases?q=nightly%2F`
 - Local publish flow:
   - install `fdroidserver`
   - make sure nightly signing is configured
