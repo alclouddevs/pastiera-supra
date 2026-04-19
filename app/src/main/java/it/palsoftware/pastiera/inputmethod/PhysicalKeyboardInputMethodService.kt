@@ -2232,6 +2232,10 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
             otherKeyInteractedDuringHold = true
             lastShiftTapUpTime = 0L
             lastAltTapUpTime = 0L
+            // Enable long-press detection for the spacebar so onKeyLongPress fires
+            if (keyCode == KeyEvent.KEYCODE_SPACE) {
+                event?.startTracking()
+            }
         }
 
         multiTapController.resetForNewKey(keyCode)
