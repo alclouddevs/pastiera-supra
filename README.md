@@ -2,41 +2,14 @@
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C31OHWF2)
 # Pastiera Supra
 
-Input method for physical keyboards on Android devices (e.g. Unihertz Titan 2), designed to make typing faster through shortcuts, gestures, and deep customization. Pastiera Supra builds on the original Pastiera with significant new features focused on voice input, navigation, and layout improvements.
+Input method for physical keyboards on Android devices (e.g. Unihertz Titan 2), designed to make typing faster through shortcuts, gestures, and deep customization. Pastiera Supra builds on the original Pastiera with new features for voice input and number row improvements.
+
+> **Important:** You must uninstall your current version of Pastiera before installing Pastiera Supra, otherwise the installation will not work.
 
 ## What's New in Pastiera Supra
 
-### Voice Typing
-- **Long-press Spacebar** to trigger voice typing directly from any text field — no shortcut needed.
-- Improved long-press detection reliability specifically for physical keyboards.
-- Fixed focus issues where Google Voice Typing would incorrectly shift focus to another app.
-
-### Keyboard Enhancements
-- **Swipe Pad Navigation**: The keyboard status bar now doubles as a swipe pad for precise cursor movement.
-- **Touch-Enabled Emojis and Symbols**: SYM keyboard symbols and emojis are now directly touchable for easier input.
-- **Keyboard Layout Conversion**: Added support for converting between different keyboard layouts (AZERTY, QWERTZ, etc.).
-- **Russian JCUKEN Layout**: New dedicated Russian JCUKEN layout added.
-- **Number Row Update**: Top number row now correctly displays 1 through 0.
-
-### Auto-Capitalization
-- **Smart Sentence Capitalization**: Automatically capitalizes the first letter after sentences ending with `.`, `!`, or `?`.
-
-### Settings & Customization
-- **Customizable Navigation Mode**: Nav Mode and Ctrl+key assignments can now be configured directly from app settings.
-- **Quick Settings Access**: Added a gear icon button on the keyboard for one-tap access to settings.
-- **Enhanced Dictionary Management**:
-  - Search functionality in the dictionary corrections interface.
-  - Custom dictionary entries appear at the top of the list for easier access.
-  - **Pastiera Recipes**: global autocorrections valid across all languages (e.g. `ppp` → `%`).
-  - Expanded unicode characters in the SYM layer page 2.
-
-### User Interface
-- **Light/Dark Mode Fix**: Resolved white-on-white text rendering in Android light mode.
-- **Multi-Language Support**: Added translations for additional languages.
-
-### Bug Fixes
-- Fixed Alt+Space pop-up issue that caused an unwanted popup when pressing Alt+Space or Alt+Letter+Space.
-- Fixed Speech Recognition focus shifting to another app when activated.
+- **Voice Typing via Long-press Spacebar**: Long-press the spacebar to trigger voice typing directly from any text field — no shortcut needed.
+- **Sticky Number Row**: The top number row now stays persistently visible for quicker number input.
 
 ---
 
