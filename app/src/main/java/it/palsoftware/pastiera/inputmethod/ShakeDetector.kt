@@ -5,6 +5,12 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.os.Build
+import android.os.Handler
+import android.os.Looper
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import kotlin.math.sqrt
 
 class ShakeDetector(
@@ -15,10 +21,12 @@ class ShakeDetector(
     private var sensorManager: SensorManager? = null
     private var accelerometer: Sensor? = null
     private var lastShakeTime = 0L
+    private val mainHandler = Handler(Looper.getMainLooper())
 
     companion object {
-        private const val SHAKE_G_FORCE_THRESHOLD = 2.1f
+        private const val SHAKE_G_FORCE_THRESHOLD = 1.8f
         private const val SHAKE_COOLDOWN_MS = 1200L
+        private const val VIBRATION_MS = 80L
     }
 
     fun register() {
@@ -48,8 +56,29 @@ class ShakeDetector(
             val now = System.currentTimeMillis()
             if (now - lastShakeTime > SHAKE_COOLDOWN_MS) {
                 lastShakeTime = now
-                onShake()
+                mainHandler.post {
+                    vibrate()
+                    onShake()
+                }
             }
+        }
+    }
+
+    private fun vibrate() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val manager = context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager
+            manager?.defaultVibrator?.vibrate(
+                VibrationEffect.createOneShot(VIBRATION_MS, VibrationEffect.DEFAULT_AMPLITUDE)
+            )
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            @Suppress("DEPRECATION")
+            val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+            vibrator?.vibrate(VibrationEffect.createOneShot(VIBRATION_MS, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            @Suppress("DEPRECATION")
+            val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
+            @Suppress("DEPRECATION")
+            vibrator?.vibrate(VIBRATION_MS)
         }
     }
 
