@@ -24,6 +24,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.view.View
 import android.widget.Toast
 import it.palsoftware.pastiera.R
@@ -587,6 +588,19 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
         return VietnameseTelexProcessor.isActiveForLayout(activeKeyboardLayoutName)
     }
 
+    private fun performUndo() {
+        val ic = currentInputConnection ?: return
+        val now = SystemClock.uptimeMillis()
+        ic.sendKeyEvent(
+            KeyEvent(now, now, KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_Z, 0,
+                KeyEvent.META_CTRL_ON or KeyEvent.META_CTRL_LEFT_ON)
+        )
+        ic.sendKeyEvent(
+            KeyEvent(now, now, KeyEvent.ACTION_UP, KeyEvent.KEYCODE_Z, 0,
+                KeyEvent.META_CTRL_ON or KeyEvent.META_CTRL_LEFT_ON)
+        )
+    }
+
     private fun handleVietnameseTelexKey(keyCode: Int, event: KeyEvent?, inputConnection: InputConnection?): Boolean {
         if (!isVietnameseTelexActive()) return false
         val ic = inputConnection ?: return false
@@ -899,7 +913,7 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
             updateStatusBarText()
         }
         candidatesBarController.onUndoRequested = {
-            currentInputConnection?.performContextMenuAction(android.R.id.undo)
+            performUndo()
         }
         candidatesBarController.onMinimalUiToggleRequested = {
             keyboardVisibilityController.toggleUserMinimalUi()
@@ -1612,7 +1626,7 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
         if (SettingsManager.isShakeToUndoEnabled(this)) {
             shakeDetector?.unregister()
             shakeDetector = ShakeDetector(this) {
-                currentInputConnection?.performContextMenuAction(android.R.id.undo)
+                performUndo()
             }
             shakeDetector?.register()
         }
