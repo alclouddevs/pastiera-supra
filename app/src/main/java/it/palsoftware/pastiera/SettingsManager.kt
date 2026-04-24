@@ -89,7 +89,7 @@ object SettingsManager {
     // Default slot assignments
     private const val DEFAULT_SLOT_LEFT = STATUS_BAR_BUTTON_HAMBURGER
     private const val DEFAULT_SLOT_RIGHT_1 = STATUS_BAR_BUTTON_EMOJI
-    private const val DEFAULT_SLOT_RIGHT_2 = STATUS_BAR_BUTTON_MICROPHONE
+    private const val DEFAULT_SLOT_RIGHT_2 = STATUS_BAR_BUTTON_UNDO
 
     private const val VARIATIONS_FILE_NAME = "variations.json"
     
@@ -118,7 +118,7 @@ object SettingsManager {
     private const val DEFAULT_PHYSICAL_KEYBOARD_PROFILE_OVERRIDE = "auto"
     private const val DEFAULT_SYM_AUTO_CLOSE = true
     private val DEFAULT_SYM_PAGES_CONFIG = SymPagesConfig()
-    private const val DEFAULT_STATIC_VARIATION_BAR_MODE = false
+    private const val DEFAULT_STATIC_VARIATION_BAR_MODE = true
     private const val DEFAULT_STATIC_VARIATION_BAR_BASE_LAYER_ENABLED = false
     private const val DEFAULT_EXPERIMENTAL_SUGGESTIONS_ENABLED = true
     private const val DEFAULT_SUGGESTION_DEBUG_LOGGING = true
