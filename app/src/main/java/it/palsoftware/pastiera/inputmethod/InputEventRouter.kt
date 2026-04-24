@@ -38,6 +38,7 @@ class InputEventRouter(
 
     var suggestionController: it.palsoftware.pastiera.core.suggestions.SuggestionController? = null
     var onCommitText: (() -> Unit)? = null
+    var onUndoableTextCommitted: ((String) -> Unit)? = null
 
     /**
      * Track in-word apostrophes so suggestions don't reset (e.g., "we'" -> "we'll").
@@ -74,6 +75,7 @@ class InputEventRouter(
         Log.d("PastieraIME", "commitTextWithTracking enter: '$text', trackWord=$trackWord")
         onCommitText?.invoke()
         ic?.commitText(text, 1)
+        onUndoableTextCommitted?.invoke(text.toString())
         if (trackWord) {
             Log.d("PastieraIME", "commitTextWithTracking notify SC: '$text'")
             suggestionController?.onCharacterCommitted(text, ic)

@@ -197,6 +197,9 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
     // Shake to undo
     private var shakeDetector: ShakeDetector? = null
 
+    // Real undo stack
+    private val undoManager = InputUndoManager()
+
     // Trackpad gesture detection
     private val trackpadScope = CoroutineScope(Dispatchers.IO)
     private lateinit var trackpadGestureDetector: TrackpadGestureDetector
@@ -589,21 +592,8 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
 
     private fun performUndo() {
         val ic = currentInputConnection ?: return
-        val textBefore = ic.getTextBeforeCursor(500, 0)?.toString() ?: return
-        if (textBefore.isEmpty()) return
-
-        val trimmed = textBefore.trimEnd { it == ' ' || it == '\n' || it == '\t' || it == '\r' }
-        val charsToDelete: Int
-        if (trimmed.isEmpty()) {
-            charsToDelete = textBefore.length
-        } else {
-            val lastBoundary = trimmed.lastIndexOfAny(charArrayOf(' ', '\n', '\t', '\r'))
-            val wordStart = if (lastBoundary >= 0) lastBoundary + 1 else 0
-            charsToDelete = textBefore.length - wordStart
-        }
-
-        if (charsToDelete > 0) {
-            ic.deleteSurroundingText(charsToDelete, 0)
+        if (!undoManager.undo(ic)) {
+            // Stack empty — nothing to undo
         }
     }
 
@@ -785,6 +775,7 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
         }
         inputEventRouter = InputEventRouter(this, navModeController).apply {
             onCommitText = { markSelectionUpdateSkipAfterCommit() }
+            onUndoableTextCommitted = { text -> undoManager.onTextCommitted(text) }
         }
         textInputController = TextInputController(
             context = this,
@@ -1569,6 +1560,7 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
         // This ensures dynamic languages are loaded even if service was already created
         if (!restarting) {
             registerAdditionalSubtypes()
+            undoManager.clearSession()
         }
 
         updateInputContextState(info)
@@ -2530,11 +2522,38 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
             suggestionController.onNavModeToggle()
         }
 
-        return when (routingDecision) {
+        val keyResult = when (routingDecision) {
             InputEventRouter.EditableFieldRoutingResult.Consume -> true
             InputEventRouter.EditableFieldRoutingResult.CallSuper -> super.onKeyDown(keyCode, event)
             InputEventRouter.EditableFieldRoutingResult.Continue -> super.onKeyDown(keyCode, event)
         }
+
+        // Track key presses for the undo stack.
+        // Consume result means the router committed text via commitTextWithTracking,
+        // which already fired onUndoableTextCommitted — no double-tracking needed.
+        if (hasEditableField && event?.repeatCount == 0) {
+            val isCursorNav = keyCode == KeyEvent.KEYCODE_DPAD_LEFT ||
+                keyCode == KeyEvent.KEYCODE_DPAD_RIGHT ||
+                keyCode == KeyEvent.KEYCODE_DPAD_UP ||
+                keyCode == KeyEvent.KEYCODE_DPAD_DOWN ||
+                keyCode == KeyEvent.KEYCODE_MOVE_HOME ||
+                keyCode == KeyEvent.KEYCODE_MOVE_END ||
+                keyCode == KeyEvent.KEYCODE_PAGE_UP ||
+                keyCode == KeyEvent.KEYCODE_PAGE_DOWN ||
+                keyCode == KeyEvent.KEYCODE_FORWARD_DEL
+            when {
+                keyCode == KeyEvent.KEYCODE_DEL ->
+                    undoManager.onBackspace()
+                isCursorNav ->
+                    undoManager.onCursorMoved()
+                routingDecision != InputEventRouter.EditableFieldRoutingResult.Consume -> {
+                    val char = event?.unicodeChar?.takeIf { it != 0 }?.toChar()
+                    if (char != null) undoManager.onCharTyped(char)
+                }
+            }
+        }
+
+        return keyResult
     }
 
     override fun onKeyUp(keyCode_: Int, event_: KeyEvent?): Boolean {
