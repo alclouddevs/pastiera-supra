@@ -168,6 +168,10 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
     
     // Current package name
     private var currentPackageName: String? = null
+
+    // Undo stack field tracking — only clear when the actual field changes
+    private var undoFieldId: Int = -1
+    private var undoFieldPackage: String? = null
     
     // Constants
     private val DOUBLE_TAP_THRESHOLD = 500L
@@ -1563,6 +1567,18 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
         // This ensures dynamic languages are loaded even if service was already created
         if (!restarting) {
             registerAdditionalSubtypes()
+        }
+
+        // Only clear the undo stack when the user actually moves to a different text field.
+        // Some apps call restartInput() after text changes (e.g. after deleteSurroundingText),
+        // which triggers onStartInputView(!restarting) on the same field — that must NOT wipe history.
+        val newFieldId = info?.fieldId ?: -1
+        val newFieldPackage = info?.packageName
+        val fieldChanged = newFieldPackage != undoFieldPackage || newFieldId != undoFieldId
+        android.util.Log.d("UndoStack", "onStartInputView restarting=$restarting fieldChanged=$fieldChanged pkg=$newFieldPackage fieldId=$newFieldId")
+        if (fieldChanged) {
+            undoFieldId = newFieldId
+            undoFieldPackage = newFieldPackage
             undoManager.clearSession()
         }
 
