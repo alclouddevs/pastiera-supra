@@ -492,15 +492,15 @@ class VariationBarView(
         // Create a single callbacks object with all available callbacks.
         // Each button factory will extract only the callbacks it needs.
         val statusBarCallbacks = StatusBarCallbacks(
-            onClipboardRequested = onClipboardRequested,
-            onSpeechRecognitionRequested = onSpeechRecognitionRequested ?: { startSpeechRecognition() },
-            onEmojiPickerRequested = onEmojiPickerRequested,
-            onLanguageSwitchRequested = onLanguageSwitchRequested,
-            onHamburgerMenuRequested = onHamburgerMenuRequested,
-            onMinimalUiToggleRequested = onMinimalUiToggleRequested,
+            onClipboardRequested = { onClipboardRequested?.invoke() },
+            onSpeechRecognitionRequested = { (onSpeechRecognitionRequested ?: { startSpeechRecognition() }).invoke() },
+            onEmojiPickerRequested = { onEmojiPickerRequested?.invoke() },
+            onLanguageSwitchRequested = { onLanguageSwitchRequested?.invoke() },
+            onHamburgerMenuRequested = { onHamburgerMenuRequested?.invoke() },
+            onMinimalUiToggleRequested = { onMinimalUiToggleRequested?.invoke() },
             onOpenSettings = { openSettings() },
-            onSymbolsPageRequested = onSymbolsPageRequested,
-            onUndoRequested = onUndoRequested,
+            onSymbolsPageRequested = { onSymbolsPageRequested?.invoke() },
+            onUndoRequested = { onUndoRequested?.invoke() },
             onHapticFeedback = { NotificationHelper.triggerHapticFeedback(context) }
         )
         

@@ -411,15 +411,15 @@ class StatusBarController(
                     buttonRegistry,
                     callbacksProvider = {
                     StatusBarCallbacks(
-                        onClipboardRequested = onClipboardRequested,
-                        onSpeechRecognitionRequested = onSpeechRecognitionRequested,
-                        onEmojiPickerRequested = onEmojiPickerRequested,
-                        onLanguageSwitchRequested = onLanguageSwitchRequested,
-                        onHamburgerMenuRequested = onHamburgerMenuRequested,
+                        onClipboardRequested = { onClipboardRequested?.invoke() },
+                        onSpeechRecognitionRequested = { onSpeechRecognitionRequested?.invoke() },
+                        onEmojiPickerRequested = { onEmojiPickerRequested?.invoke() },
+                        onLanguageSwitchRequested = { onLanguageSwitchRequested?.invoke() },
+                        onHamburgerMenuRequested = { onHamburgerMenuRequested?.invoke() },
                         onMinimalUiToggleRequested = { handleMinimalUiToggleFromMenu() },
                         onOpenSettings = { openSettings() },
-                        onSymbolsPageRequested = onSymbolsPageRequested,
-                        onUndoRequested = onUndoRequested,
+                        onSymbolsPageRequested = { onSymbolsPageRequested?.invoke() },
+                        onUndoRequested = { onUndoRequested?.invoke() },
                         onHapticFeedback = { NotificationHelper.triggerHapticFeedback(context) }
                     )
                 }

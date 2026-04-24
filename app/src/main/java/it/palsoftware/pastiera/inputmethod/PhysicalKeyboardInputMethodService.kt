@@ -591,10 +591,13 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
     }
 
     private fun performUndo() {
-        val ic = currentInputConnection ?: return
-        if (!undoManager.undo(ic)) {
-            // Stack empty — nothing to undo
+        android.util.Log.d("UndoStack", "performUndo: ic=${currentInputConnection}")
+        val ic = currentInputConnection ?: run {
+            android.util.Log.d("UndoStack", "performUndo: InputConnection is null, aborting")
+            return
         }
+        val result = undoManager.undo(ic)
+        android.util.Log.d("UndoStack", "performUndo: undo result=$result")
     }
 
     private fun handleVietnameseTelexKey(keyCode: Int, event: KeyEvent?, inputConnection: InputConnection?): Boolean {

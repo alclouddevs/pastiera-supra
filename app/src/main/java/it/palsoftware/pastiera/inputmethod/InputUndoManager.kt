@@ -1,5 +1,6 @@
 package it.palsoftware.pastiera.inputmethod
 
+import android.util.Log
 import android.view.inputmethod.InputConnection
 
 /**
@@ -23,11 +24,13 @@ class InputUndoManager {
     private val pendingWord = StringBuilder()
 
     companion object {
+        private const val TAG = "UndoStack"
         private const val MAX_STACK_SIZE = 100
     }
 
     /** Called for each printable character typed via the hardware keyboard (sendKeyEvent path). */
     fun onCharTyped(char: Char) {
+        Log.d(TAG, "onCharTyped: '$char'  pending='$pendingWord'  stack.size=${stack.size}")
         when (char) {
             ' ', '\n', '\r', '\t' -> {
                 pendingWord.append(char)
@@ -43,6 +46,7 @@ class InputUndoManager {
      */
     fun onTextCommitted(text: String) {
         if (text.isEmpty()) return
+        Log.d(TAG, "onTextCommitted: '$text'  stack.size=${stack.size}")
         commitPending()
         push(text)
     }
@@ -76,8 +80,13 @@ class InputUndoManager {
      */
     fun undo(ic: InputConnection): Boolean {
         commitPending()
-        val text = stack.removeLastOrNull() ?: return false
+        Log.d(TAG, "undo called: stack.size=${stack.size}  pending='$pendingWord'")
+        val text = stack.removeLastOrNull() ?: run {
+            Log.d(TAG, "undo: stack empty, nothing to undo")
+            return false
+        }
         if (text.isEmpty()) return false
+        Log.d(TAG, "undo: deleting '${text}' (${text.length} chars)")
         ic.deleteSurroundingText(text.length, 0)
         return true
     }
