@@ -1,0 +1,112 @@
+adb logcat -s UndoStack
+
+
+--------- beginning of main
+04-24 16:32:31.601 24958 24958 D UndoStack: clearSession
+04-24 16:32:33.077 24958 24958 D UndoStack: tracking key=30 unicode=98 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:33.078 24958 24958 D UndoStack: onCharTyped: 'b'  pending=''  stack.size=0
+04-24 16:32:33.393 24958 24958 D UndoStack: tracking key=33 unicode=101 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:33.394 24958 24958 D UndoStack: onCharTyped: 'e'  pending='b'  stack.size=0
+04-24 16:32:33.423 24958 24958 D UndoStack: tracking key=36 unicode=104 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:33.423 24958 24958 D UndoStack: onCharTyped: 'h'  pending='be'  stack.size=0
+04-24 16:32:33.456 24958 24958 D UndoStack: tracking key=30 unicode=98 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:33.456 24958 24958 D UndoStack: onCharTyped: 'b'  pending='beh'  stack.size=0
+04-24 16:32:33.482 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:33.482 24958 24958 D UndoStack: onCharTyped: 'd'  pending='behb'  stack.size=0
+04-24 16:32:33.627 24958 24958 D UndoStack: tracking key=36 unicode=104 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:33.627 24958 24958 D UndoStack: onCharTyped: 'h'  pending='behbd'  stack.size=0
+04-24 16:32:33.683 24958 24958 D UndoStack: tracking key=33 unicode=101 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:33.683 24958 24958 D UndoStack: onCharTyped: 'e'  pending='behbdh'  stack.size=0
+04-24 16:32:36.439 24958 24958 D UndoStack: performUndo: ic=RemoteInputConnection{idHash=#156dd9b}  stackSize=1
+04-24 16:32:36.439 24958 24958 D UndoStack: undo called: stack.size=1
+04-24 16:32:36.439 24958 24958 D UndoStack: undo: sending 7 DEL events for 'behbdhe'
+04-24 16:32:36.440 24958 24958 D UndoStack: performUndo: undo result=true
+04-24 16:32:37.217 24958 24958 D UndoStack: performUndo: ic=RemoteInputConnection{idHash=#156dd9b}  stackSize=0
+04-24 16:32:37.218 24958 24958 D UndoStack: undo called: stack.size=0
+04-24 16:32:37.218 24958 24958 D UndoStack: undo: stack empty, nothing to undo
+04-24 16:32:37.218 24958 24958 D UndoStack: performUndo: undo result=false
+04-24 16:32:38.041 24958 24958 D UndoStack: tracking key=36 unicode=104 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:38.041 24958 24958 D UndoStack: onCharTyped: 'h'  pending=''  stack.size=0
+04-24 16:32:38.236 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:38.236 24958 24958 D UndoStack: onCharTyped: 'd'  pending='h'  stack.size=0
+04-24 16:32:38.275 24958 24958 D UndoStack: tracking key=33 unicode=101 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:38.276 24958 24958 D UndoStack: onCharTyped: 'e'  pending='hd'  stack.size=0
+04-24 16:32:38.366 24958 24958 D UndoStack: tracking key=36 unicode=104 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:38.366 24958 24958 D UndoStack: onCharTyped: 'h'  pending='hde'  stack.size=0
+04-24 16:32:38.858 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:38.858 24958 24958 D UndoStack: onCharTyped: 'd'  pending='hdeh'  stack.size=0
+04-24 16:32:38.963 24958 24958 D UndoStack: tracking key=38 unicode=106 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:38.963 24958 24958 D UndoStack: onCharTyped: 'j'  pending='hdehd'  stack.size=0
+04-24 16:32:39.220 24958 24958 D UndoStack: tracking key=36 unicode=104 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:39.220 24958 24958 D UndoStack: onCharTyped: 'h'  pending='hdehdj'  stack.size=0
+04-24 16:32:39.245 24958 24958 D UndoStack: tracking key=38 unicode=106 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:39.245 24958 24958 D UndoStack: onCharTyped: 'j'  pending='hdehdjh'  stack.size=0
+04-24 16:32:39.350 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:39.350 24958 24958 D UndoStack: onCharTyped: 'd'  pending='hdehdjhj'  stack.size=0
+04-24 16:32:40.118 24958 24958 D UndoStack: performUndo: ic=RemoteInputConnection{idHash=#156dd9b}  stackSize=1
+04-24 16:32:40.119 24958 24958 D UndoStack: undo called: stack.size=1
+04-24 16:32:40.119 24958 24958 D UndoStack: undo: sending 9 DEL events for 'hdehdjhjd'
+04-24 16:32:40.119 24958 24958 D UndoStack: performUndo: undo result=true
+04-24 16:32:40.522 24958 24958 D UndoStack: performUndo: ic=RemoteInputConnection{idHash=#156dd9b}  stackSize=0
+04-24 16:32:40.522 24958 24958 D UndoStack: undo called: stack.size=0
+04-24 16:32:40.522 24958 24958 D UndoStack: undo: stack empty, nothing to undo
+04-24 16:32:40.522 24958 24958 D UndoStack: performUndo: undo result=false
+04-24 16:32:41.240 24958 24958 D UndoStack: performUndo: ic=RemoteInputConnection{idHash=#156dd9b}  stackSize=0
+04-24 16:32:41.240 24958 24958 D UndoStack: undo called: stack.size=0
+04-24 16:32:41.240 24958 24958 D UndoStack: undo: stack empty, nothing to undo
+04-24 16:32:41.240 24958 24958 D UndoStack: performUndo: undo result=false
+04-24 16:32:42.041 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:42.041 24958 24958 D UndoStack: onCharTyped: 'd'  pending=''  stack.size=0
+04-24 16:32:42.218 24958 24958 D UndoStack: tracking key=49 unicode=117 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:42.218 24958 24958 D UndoStack: onCharTyped: 'u'  pending='d'  stack.size=0
+04-24 16:32:42.238 24958 24958 D UndoStack: tracking key=37 unicode=105 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:42.238 24958 24958 D UndoStack: onCharTyped: 'i'  pending='du'  stack.size=0
+04-24 16:32:42.348 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:42.348 24958 24958 D UndoStack: onCharTyped: 'd'  pending='dui'  stack.size=0
+04-24 16:32:42.418 24958 24958 D UndoStack: tracking key=37 unicode=105 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:42.418 24958 24958 D UndoStack: onCharTyped: 'i'  pending='duid'  stack.size=0
+04-24 16:32:42.422 24958 24958 D UndoStack: tracking key=49 unicode=117 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:42.422 24958 24958 D UndoStack: onCharTyped: 'u'  pending='duidi'  stack.size=0
+04-24 16:32:42.901 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:42.901 24958 24958 D UndoStack: onCharTyped: 'd'  pending='duidiu'  stack.size=0
+04-24 16:32:42.985 24958 24958 D UndoStack: tracking key=38 unicode=106 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:42.985 24958 24958 D UndoStack: onCharTyped: 'j'  pending='duidiud'  stack.size=0
+04-24 16:32:43.006 24958 24958 D UndoStack: tracking key=49 unicode=117 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:43.006 24958 24958 D UndoStack: onCharTyped: 'u'  pending='duidiudj'  stack.size=0
+04-24 16:32:43.140 24958 24958 D UndoStack: tracking key=38 unicode=106 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:43.140 24958 24958 D UndoStack: onCharTyped: 'j'  pending='duidiudju'  stack.size=0
+04-24 16:32:43.169 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:43.169 24958 24958 D UndoStack: onCharTyped: 'd'  pending='duidiudjuj'  stack.size=0
+04-24 16:32:43.775 24958 24958 D UndoStack: tracking key=36 unicode=104 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:43.775 24958 24958 D UndoStack: onCharTyped: 'h'  pending='duidiudjujd'  stack.size=0
+04-24 16:32:43.802 24958 24958 D UndoStack: tracking key=38 unicode=106 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:43.803 24958 24958 D UndoStack: onCharTyped: 'j'  pending='duidiudjujdh'  stack.size=0
+04-24 16:32:43.880 24958 24958 D UndoStack: tracking key=34 unicode=102 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:43.880 24958 24958 D UndoStack: onCharTyped: 'f'  pending='duidiudjujdhj'  stack.size=0
+04-24 16:32:44.005 24958 24958 D UndoStack: tracking key=36 unicode=104 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:44.005 24958 24958 D UndoStack: onCharTyped: 'h'  pending='duidiudjujdhjf'  stack.size=0
+04-24 16:32:44.009 24958 24958 D UndoStack: tracking key=38 unicode=106 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:44.009 24958 24958 D UndoStack: onCharTyped: 'j'  pending='duidiudjujdhjfh'  stack.size=0
+04-24 16:32:44.024 24958 24958 D UndoStack: tracking key=35 unicode=103 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:44.024 24958 24958 D UndoStack: onCharTyped: 'g'  pending='duidiudjujdhjfhj'  stack.size=0
+04-24 16:32:44.035 24958 24958 D UndoStack: tracking key=34 unicode=102 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:44.035 24958 24958 D UndoStack: onCharTyped: 'f'  pending='duidiudjujdhjfhjg'  stack.size=0
+04-24 16:32:44.683 24958 24958 D UndoStack: tracking key=33 unicode=101 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:44.684 24958 24958 D UndoStack: onCharTyped: 'e'  pending='duidiudjujdhjfhjgf'  stack.size=0
+04-24 16:32:44.887 24958 24958 D UndoStack: tracking key=33 unicode=101 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:44.888 24958 24958 D UndoStack: onCharTyped: 'e'  pending='duidiudjujdhjfhjgfe'  stack.size=0
+04-24 16:32:45.428 24958 24958 D UndoStack: tracking key=34 unicode=102 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:45.429 24958 24958 D UndoStack: onCharTyped: 'f'  pending='duidiudjujdhjfhjgfee'  stack.size=0
+04-24 16:32:45.459 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:45.459 24958 24958 D UndoStack: onCharTyped: 'd'  pending='duidiudjujdhjfhjgfeef'  stack.size=0
+04-24 16:32:45.733 24958 24958 D UndoStack: tracking key=32 unicode=100 metaState=0 routingDecision=it.palsoftware.pastiera.inputmethod.InputEventRouter$EditableFieldRoutingResult$Consume@59c6fb8
+04-24 16:32:45.734 24958 24958 D UndoStack: onCharTyped: 'd'  pending='duidiudjujdhjfhjgfeefd'  stack.size=0
+04-24 16:32:47.171 24958 24958 D UndoStack: performUndo: ic=RemoteInputConnection{idHash=#156dd9b}  stackSize=1
+04-24 16:32:47.172 24958 24958 D UndoStack: undo called: stack.size=1
+04-24 16:32:47.172 24958 24958 D UndoStack: undo: sending 23 DEL events for 'duidiudjujdhjfhjgfeefdd'
+04-24 16:32:47.175 24958 24958 D UndoStack: performUndo: undo result=true
+04-24 16:32:47.919 24958 24958 D UndoStack: performUndo: ic=RemoteInputConnection{idHash=#156dd9b}  stackSize=0
+04-24 16:32:47.920 24958 24958 D UndoStack: undo called: stack.size=0
+04-24 16:32:47.920 24958 24958 D UndoStack: undo: stack empty, nothing to undo
+04-24 16:32:47.921 24958 24958 D UndoStack: performUndo: undo result=false
+

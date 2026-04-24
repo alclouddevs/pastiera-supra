@@ -599,9 +599,6 @@ class PhysicalKeyboardInputMethodService : InputMethodService() {
         }
         val result = undoManager.undo(ic)
         android.util.Log.d("UndoStack", "performUndo: undo result=$result")
-        if (!result) {
-            Toast.makeText(applicationContext, "[Undo] Nothing to undo", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun handleVietnameseTelexKey(keyCode: Int, event: KeyEvent?, inputConnection: InputConnection?): Boolean {
