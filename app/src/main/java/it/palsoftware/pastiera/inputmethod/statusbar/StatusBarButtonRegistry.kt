@@ -199,6 +199,7 @@ class StatusBarButtonRegistry {
             SettingsManager.STATUS_BAR_BUTTON_HAMBURGER -> StatusBarButtonId.Hamburger
             SettingsManager.STATUS_BAR_BUTTON_SETTINGS -> StatusBarButtonId.Settings
             SettingsManager.STATUS_BAR_BUTTON_SYMBOLS -> StatusBarButtonId.Symbols
+            SettingsManager.STATUS_BAR_BUTTON_UNDO -> StatusBarButtonId.Undo
             SettingsManager.STATUS_BAR_BUTTON_NONE -> null
             else -> null
         }

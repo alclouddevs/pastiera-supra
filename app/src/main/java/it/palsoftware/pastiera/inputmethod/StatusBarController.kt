@@ -419,6 +419,7 @@ class StatusBarController(
                         onMinimalUiToggleRequested = { handleMinimalUiToggleFromMenu() },
                         onOpenSettings = { openSettings() },
                         onSymbolsPageRequested = onSymbolsPageRequested,
+                        onUndoRequested = onUndoRequested,
                         onHapticFeedback = { NotificationHelper.triggerHapticFeedback(context) }
                     )
                 }

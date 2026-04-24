@@ -84,6 +84,7 @@ object SettingsManager {
     const val STATUS_BAR_BUTTON_HAMBURGER = "hamburger"
     const val STATUS_BAR_BUTTON_SETTINGS = "settings"
     const val STATUS_BAR_BUTTON_SYMBOLS = "symbols"
+    const val STATUS_BAR_BUTTON_UNDO = "undo"
     
     // Default slot assignments
     private const val DEFAULT_SLOT_LEFT = STATUS_BAR_BUTTON_HAMBURGER
@@ -2307,7 +2308,8 @@ object SettingsManager {
             STATUS_BAR_BUTTON_LANGUAGE,
             STATUS_BAR_BUTTON_HAMBURGER,
             STATUS_BAR_BUTTON_SETTINGS,
-            STATUS_BAR_BUTTON_SYMBOLS
+            STATUS_BAR_BUTTON_SYMBOLS,
+            STATUS_BAR_BUTTON_UNDO
         )
     }
 }

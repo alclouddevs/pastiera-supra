@@ -682,7 +682,8 @@
     <string name="status_bar_button_clipboard_description">Clipboard history</string>
     <string name="status_bar_button_microphone">Microphone</string>
     <string name="status_bar_button_microphone_description">Voice input</string>
-    <string name="status_bar_button_undo_description">Undo</string>
+    <string name="status_bar_button_undo">Undo</string>
+    <string name="status_bar_button_undo_description">Undo last input</string>
     <string name="status_bar_button_emoji">Emoji</string>
     <string name="status_bar_button_emoji_description">Emoji picker</string>
     <string name="status_bar_button_language">Language</string>
