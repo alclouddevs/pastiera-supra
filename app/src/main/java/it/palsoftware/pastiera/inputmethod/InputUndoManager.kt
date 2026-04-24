@@ -1,6 +1,7 @@
 package it.palsoftware.pastiera.inputmethod
 
 import android.util.Log
+import android.view.KeyEvent
 import android.view.inputmethod.InputConnection
 
 /**
@@ -75,24 +76,38 @@ class InputUndoManager {
     }
 
     /**
-     * Performs one undo step: deletes the last recorded text chunk from the field.
+     * Returns how many undo steps are available (pending word counts as 1).
+     */
+    fun stackSize(): Int = stack.size + (if (pendingWord.isNotEmpty()) 1 else 0)
+
+    /**
+     * Performs one undo step: sends DEL key events for each character in the last
+     * recorded text chunk. Uses sendKeyEvent — the same deletion path as the physical
+     * backspace key — rather than deleteSurroundingText for maximum reliability.
+     *
      * Returns true if undo was applied, false if the stack was empty.
      */
     fun undo(ic: InputConnection): Boolean {
         commitPending()
-        Log.d(TAG, "undo called: stack.size=${stack.size}  pending='$pendingWord'")
+        Log.d(TAG, "undo called: stack.size=${stack.size}")
         val text = stack.removeLastOrNull() ?: run {
             Log.d(TAG, "undo: stack empty, nothing to undo")
             return false
         }
         if (text.isEmpty()) return false
-        Log.d(TAG, "undo: deleting '${text}' (${text.length} chars)")
-        ic.deleteSurroundingText(text.length, 0)
+        Log.d(TAG, "undo: sending ${text.length} DEL events for '${text}'")
+        val downEvent = KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL)
+        val upEvent = KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL)
+        repeat(text.length) {
+            ic.sendKeyEvent(downEvent)
+            ic.sendKeyEvent(upEvent)
+        }
         return true
     }
 
     /** Clears all history. Call this when the user moves to a new text field. */
     fun clearSession() {
+        Log.d(TAG, "clearSession")
         stack.clear()
         pendingWord.clear()
     }
