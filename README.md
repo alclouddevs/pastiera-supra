@@ -8,7 +8,7 @@ Input method for physical keyboards on Android devices (e.g. Unihertz Titan 2), 
 
 ## Download
 
-Download the latest built APK for easy installation: [Pastiera Supra v1.0.0](https://github.com/alclouddevs/pastiera-supra/releases/tag/v1.0.0)
+Download the latest built APK for easy installation: [Pastiera Supra v1.0.3]([https://github.com/alclouddevs/pastiera-supra/releases/tag/v1.0.0](https://github.com/alclouddevs/pastiera-supra/releases/tag/v1.0.3))
 
 ## What's New in Pastiera Supra
 
