@@ -8,7 +8,7 @@ import android.view.inputmethod.InputConnection
  *
  * Chunk boundaries (each chunk = one undo step):
  *  - A pause of [CHUNK_BREAK_MS] or more between keystrokes starts a new chunk.
- *  - A space or newline flushes the current chunk (including the space).
+ *  - A space or newline flushes the current chunk (space included in the chunk).
  *  - Auto-corrected / explicitly committed text is always its own chunk.
  *  - Cursor repositioning clears history (position is now unknown).
  *
@@ -30,7 +30,6 @@ class InputUndoManager {
         private const val TAG = "UndoStack"
         private const val MAX_STACK_SIZE = 200
         private const val CHUNK_BREAK_MS = 1000L
-        private const val MAX_CHUNK_CHARS = 10
     }
 
     /**
@@ -56,10 +55,6 @@ class InputUndoManager {
             }
             else -> {
                 pendingChunk.append(char)
-                if (pendingChunk.length >= MAX_CHUNK_CHARS) {
-                    Log.d(TAG, "onCharTyped: char-cap reached (${pendingChunk.length}), flushing chunk")
-                    commitPending()
-                }
             }
         }
 
