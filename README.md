@@ -15,6 +15,8 @@ Download the latest built APK for easy installation: [Pastiera Supra v1.0.3] htt
 - **Voice Typing via Long-press Spacebar**: Long-press the spacebar to trigger voice typing directly from any text field — no shortcut needed.
 - **Alt+Backspace line deletion behavior**:option to control Alt+Backspace line deletion behavior.  
 - **Sticky Number Row**: The top number row now stays persistently visible for quicker number input.
+- **Multi-step undo** — the headline feature of this release. Press your undo shortcut repeatedly to step back through your typing history. Text is chunked intelligently so each undo step removes a meaningful amount of text:
+  
  Static Variation Bar - option should be enabled for the number row to be visible.
 <img width="1436" height="1440" alt="Screenshot_20260420-034830" src="https://github.com/user-attachments/assets/3f000409-b82d-4897-8289-e65a036b1aae" />
 
