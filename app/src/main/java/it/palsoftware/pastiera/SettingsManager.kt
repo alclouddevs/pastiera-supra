@@ -140,7 +140,7 @@ object SettingsManager {
     private const val DEFAULT_SHIFT_BACKSPACE_DELETE = false
     private const val DEFAULT_ALT_BACKSPACE_DELETE = false
     private const val DEFAULT_ALT_BACKSPACE_DELETE_LINE = true
-    private const val DEFAULT_SHAKE_TO_UNDO = false
+    private const val DEFAULT_SHAKE_TO_UNDO = true
     private const val DEFAULT_BACKSPACE_AT_START_DELETE = false
     private const val DEFAULT_ACCESSIBILITY_LIVE_ANNOUNCEMENTS_ENABLED = false
     private const val DEFAULT_ACCESSIBILITY_READ_SECOND_ROW_ENABLED = false
