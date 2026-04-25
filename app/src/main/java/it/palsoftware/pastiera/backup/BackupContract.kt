@@ -205,7 +205,7 @@ object PreferenceSchemas {
             "sym_pages_config" to PreferenceValueType.STRING,
             "sym_auto_close" to PreferenceValueType.BOOLEAN,
             "dismissed_releases" to PreferenceValueType.STRING,
-            "tutorial_completed" to PreferenceValueType.BOOLEAN,
+            "supra_tutorial_completed" to PreferenceValueType.BOOLEAN,
             "swipe_incremental_threshold" to PreferenceValueType.FLOAT,
             "static_variation_bar_mode" to PreferenceValueType.BOOLEAN,
             "static_variation_bar_base_layer_enabled" to PreferenceValueType.BOOLEAN,
